@@ -1,19 +1,20 @@
 import { A } from "@solidjs/router";
 import { Component } from "solid-js";
 import { Button } from "~/components/ui/button";
+import { Checkbox } from "~/components/ui/checkbox";
 import Input from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { Separator } from "~/components/ui/separator";
-const LoginPage: Component<{}> = (props) => {
+const RegisterPage: Component<{}> = (props) => {
   return (
-    <main class="h-screen max-h-screen flex flex-col justify-center items-center">
+    <main class="min-h-screen flex flex-col justify-center items-center">
       <form action="" class="space-y-5 md:w-1/2 w-full p-4">
         <div>
-          <h4>Log in to your Shopping Account</h4>
+          <h4>Sign up to your Shopping Account</h4>
           <span class="muted large">Shop now with us</span>
         </div>
         <div class="gap-2.5 grid grid-cols-1 md:grid-cols-2">
-          <Button class="gap-2.5 w-full" variant={"outline"}>
+          <Button class="gap-2.5" variant={"outline"}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
@@ -41,7 +42,7 @@ const LoginPage: Component<{}> = (props) => {
             </svg>
             Sign in with google
           </Button>
-          <Button class="gap-2.5 w-full" variant={"outline"}>
+          <Button class="gap-2.5" variant={"outline"}>
             <img
               width={16}
               height={16}
@@ -53,23 +54,29 @@ const LoginPage: Component<{}> = (props) => {
         </div>
         <Separator />
         <div>
+          <Label>Full name</Label>
+          <Input placeholder="John Doe" />
+        </div>
+        <div>
           <Label>Email</Label>
           <Input placeholder="you@gmail.com" />
         </div>
-        <div>
+        <div class="space-y-2.5">
           <div class="flex flex-row justify-between items-center">
             <Label>Password</Label>
-            <Button variant={"link"} class="p-0">
-              I forgot my password
-            </Button>
           </div>
           <Input placeholder="********" />
+          <Input placeholder="********" />
+        </div>
+        <div class="flex items-center gap-2.5">
+          <Checkbox />
+          <Label>I accept the Terms and Condition</Label>
         </div>
         <Button class="w-full">Sign In</Button>
         <div class="flex flex-row items-center gap-2.5">
-          <span class="small">Dont have an account yet?</span>
-          <Button as={A} href="/security/register" variant={"link"} class="p-0">
-            Sign up
+          <span class="small">Already have an account?</span>
+          <Button as={A} href="/security/login" variant={"link"} class="p-0">
+            Sign in
           </Button>
         </div>
       </form>
@@ -77,4 +84,4 @@ const LoginPage: Component<{}> = (props) => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
